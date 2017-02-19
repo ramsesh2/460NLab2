@@ -653,7 +653,7 @@ void LDW(void) {
 
 	DR = regNum(4, 6);
 	baseR = regNum(7, 9);
-	temp = Low16bit(CURRENT_LATCHES.REGS[baseR] + (signEx(6) << 1));
+	temp = Low16bits(CURRENT_LATCHES.REGS[baseR] + (signEx(6) << 1));
 
 	NEXT_LATCHES.REGS[DR] = MEMORY[temp / 2][0];
 	NEXT_LATCHES.REGS[DR] = Low16bits(NEXT_LATCHES.REGS[DR] + (MEMORY[temp / 2][1] << 8));
@@ -798,7 +798,7 @@ void LEA(void) {
 
 	DR = regNum(4, 6);
 
-	NEXT_LATCHES.REGS[DR] = Low16bit(CURRENT_LATCHES.PC + 2 + (signEx(9) << 1));
+	NEXT_LATCHES.REGS[DR] = Low16bits(CURRENT_LATCHES.PC + 2 + (signEx(9) << 1));
 	NEXT_LATCHES.PC = Low16bits(CURRENT_LATCHES.PC + 2);
 }
 
